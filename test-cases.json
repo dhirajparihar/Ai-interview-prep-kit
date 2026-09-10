@@ -1,0 +1,32 @@
+[
+  {
+    "id": "case-01",
+    "jd": "Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers.",
+    "company_url": "https://example.com",
+    "days": 5
+  },
+  {
+    "id": "case-02",
+    "jd": "Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS.",
+    "company_url": "https://example.org",
+    "days": 3
+  },
+  {
+    "id": "case-03",
+    "jd": "DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines.",
+    "company_url": "http://localhost:8099/acme/",
+    "days": 1
+  },
+  {
+    "id": "case-04",
+    "jd": "Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus.",
+    "company_url": "https://example.net",
+    "days": 7
+  },
+  {
+    "id": "case-05",
+    "jd": "Engineering Lead. Lead engineering team of 8 developers.",
+    "company_url": "https://example.com/team",
+    "days": 10
+  }
+]

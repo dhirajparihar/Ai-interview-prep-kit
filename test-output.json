@@ -1,0 +1,735 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-10T17:42:22.085Z",
+  "kits": [
+    {
+      "id": "case-01",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example Domain",
+          "company_url": "https://example.com",
+          "role": "Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers.",
+          "location": "Remote / Onsite",
+          "jd_chars": 172,
+          "researched_at": "2026-09-10T17:42:21.484Z",
+          "pages_used": [
+            "https://example.com/"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example Domain is a technology-focused organization.",
+          "what_they_do": "Provides products and services in their industry.",
+          "sources": [
+            "https://example.com/"
+          ],
+          "state": "generated"
+        },
+        "role": {
+          "title": "Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers.",
+          "seniority": "Mid-Senior",
+          "responsibilities": [
+            "Fulfill technical objectives",
+            "Collaborate with team"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers.",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ],
+          "state": "generated"
+        },
+        "questions": [
+          {
+            "id": "q_technical_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you implement and optimize Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers. in a production codebase.",
+            "answer_outline": "Cover architecture, error handling, performance consideration, and automated testing for Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers..",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_behavioural_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe a situation where you had to navigate challenges involving Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers..",
+            "answer_outline": "Use the STAR method: Describe the Situation, your Task, the Action you took, and the quantifiable Result.",
+            "difficulty": 2,
+            "state": "generated"
+          },
+          {
+            "id": "q_system-design_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-throughput, fault-tolerant system that fulfills Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers..",
+            "answer_outline": "Address data modeling, API boundaries, caching strategy, bottleneck identification, and failure recovery.",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_company-fit_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "Why are you excited about working on Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers. at our company?",
+            "answer_outline": "Align personal career goals, technical background, and passion for the company's product vision.",
+            "difficulty": 1,
+            "state": "generated"
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What are the core technical principles of Senior Backend Engineer with 5+ years experience building distributed microservices using Node.js, TypeScript, and MongoDB. Must have experience mentoring junior engineers.?",
+            "back": "Key principles include modularity, error handling, performance optimization, and adhering to best practice design patterns.",
+            "requirement_ids": [
+              "r1"
+            ],
+            "state": "generated"
+          }
+        ],
+        "schedule": {
+          "days_available": 5,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Core Technical Concepts & Problem Solving",
+              "question_ids": [
+                "q_technical_r1_1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 2,
+              "focus": "System Design Architecture & Scalability",
+              "question_ids": [
+                "q_system-design_r1_1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "Behavioural Interview Scenarios & Soft Skills",
+              "question_ids": [
+                "q_behavioural_r1_1"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 4,
+              "focus": "Company Culture, Values & Role Alignment",
+              "question_ids": [
+                "q_company-fit_r1_1"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-02",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example Domain",
+          "company_url": "https://example.org",
+          "role": "Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS.",
+          "location": "Remote / Onsite",
+          "jd_chars": 87,
+          "researched_at": "2026-09-10T17:42:21.731Z",
+          "pages_used": [
+            "https://example.org/"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example Domain is a technology-focused organization.",
+          "what_they_do": "Provides products and services in their industry.",
+          "sources": [
+            "https://example.org/"
+          ],
+          "state": "generated"
+        },
+        "role": {
+          "title": "Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS.",
+          "seniority": "Mid-Senior",
+          "responsibilities": [
+            "Fulfill technical objectives",
+            "Collaborate with team"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS.",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ],
+          "state": "generated"
+        },
+        "questions": [
+          {
+            "id": "q_technical_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you implement and optimize Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS. in a production codebase.",
+            "answer_outline": "Cover architecture, error handling, performance consideration, and automated testing for Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS..",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_behavioural_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe a situation where you had to navigate challenges involving Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS..",
+            "answer_outline": "Use the STAR method: Describe the Situation, your Task, the Action you took, and the quantifiable Result.",
+            "difficulty": 2,
+            "state": "generated"
+          },
+          {
+            "id": "q_system-design_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-throughput, fault-tolerant system that fulfills Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS..",
+            "answer_outline": "Address data modeling, API boundaries, caching strategy, bottleneck identification, and failure recovery.",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_company-fit_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "Why are you excited about working on Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS. at our company?",
+            "answer_outline": "Align personal career goals, technical background, and passion for the company's product vision.",
+            "difficulty": 1,
+            "state": "generated"
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What are the core technical principles of Frontend React Engineer. Build responsive web interfaces with Next.js and Tailwind CSS.?",
+            "back": "Key principles include modularity, error handling, performance optimization, and adhering to best practice design patterns.",
+            "requirement_ids": [
+              "r1"
+            ],
+            "state": "generated"
+          }
+        ],
+        "schedule": {
+          "days_available": 3,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Core Technical Concepts & Problem Solving",
+              "question_ids": [
+                "q_technical_r1_1",
+                "q_company-fit_r1_1"
+              ],
+              "minutes": 60
+            },
+            {
+              "day": 2,
+              "focus": "System Design Architecture & Scalability",
+              "question_ids": [
+                "q_system-design_r1_1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "Behavioural Interview Scenarios & Soft Skills",
+              "question_ids": [
+                "q_behavioural_r1_1"
+              ],
+              "minutes": 30
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-03",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Localhost",
+          "company_url": "http://localhost:8099/acme/",
+          "role": "DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines.",
+          "location": "Remote / Onsite",
+          "jd_chars": 83,
+          "researched_at": "2026-09-10T17:42:21.737Z",
+          "pages_used": []
+        },
+        "company_brief": {
+          "summary": "Detailed overview of Localhost.",
+          "what_they_do": "Provides products and services in their industry.",
+          "sources": [],
+          "state": "generated"
+        },
+        "role": {
+          "title": "DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines.",
+          "seniority": "Mid-Senior",
+          "responsibilities": [
+            "Fulfill technical objectives",
+            "Collaborate with team"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines.",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ],
+          "state": "generated"
+        },
+        "questions": [
+          {
+            "id": "q_technical_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you implement and optimize DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines. in a production codebase.",
+            "answer_outline": "Cover architecture, error handling, performance consideration, and automated testing for DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines..",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_behavioural_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe a situation where you had to navigate challenges involving DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines..",
+            "answer_outline": "Use the STAR method: Describe the Situation, your Task, the Action you took, and the quantifiable Result.",
+            "difficulty": 2,
+            "state": "generated"
+          },
+          {
+            "id": "q_system-design_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-throughput, fault-tolerant system that fulfills DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines..",
+            "answer_outline": "Address data modeling, API boundaries, caching strategy, bottleneck identification, and failure recovery.",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_company-fit_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "Why are you excited about working on DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines. at our company?",
+            "answer_outline": "Align personal career goals, technical background, and passion for the company's product vision.",
+            "difficulty": 1,
+            "state": "generated"
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What are the core technical principles of DevOps Engineer. Manage Kubernetes cluster, Docker containers, and CI/CD pipelines.?",
+            "back": "Key principles include modularity, error handling, performance optimization, and adhering to best practice design patterns.",
+            "requirement_ids": [
+              "r1"
+            ],
+            "state": "generated"
+          }
+        ],
+        "schedule": {
+          "days_available": 1,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Core Technical Concepts & Problem Solving",
+              "question_ids": [
+                "q_technical_r1_1",
+                "q_system-design_r1_1",
+                "q_behavioural_r1_1",
+                "q_company-fit_r1_1"
+              ],
+              "minutes": 135
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-04",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example Domain",
+          "company_url": "https://example.net",
+          "role": "Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus.",
+          "location": "Remote / Onsite",
+          "jd_chars": 75,
+          "researched_at": "2026-09-10T17:42:22.029Z",
+          "pages_used": [
+            "https://example.net/"
+          ]
+        },
+        "company_brief": {
+          "summary": "Example Domain is a technology-focused organization.",
+          "what_they_do": "Provides products and services in their industry.",
+          "sources": [
+            "https://example.net/"
+          ],
+          "state": "generated"
+        },
+        "role": {
+          "title": "Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus.",
+          "seniority": "Mid-Senior",
+          "responsibilities": [
+            "Fulfill technical objectives",
+            "Collaborate with team"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus.",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ],
+          "state": "generated"
+        },
+        "questions": [
+          {
+            "id": "q_technical_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you implement and optimize Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus. in a production codebase.",
+            "answer_outline": "Cover architecture, error handling, performance consideration, and automated testing for Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus..",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_behavioural_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe a situation where you had to navigate challenges involving Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus..",
+            "answer_outline": "Use the STAR method: Describe the Situation, your Task, the Action you took, and the quantifiable Result.",
+            "difficulty": 2,
+            "state": "generated"
+          },
+          {
+            "id": "q_system-design_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-throughput, fault-tolerant system that fulfills Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus..",
+            "answer_outline": "Address data modeling, API boundaries, caching strategy, bottleneck identification, and failure recovery.",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_company-fit_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "Why are you excited about working on Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus. at our company?",
+            "answer_outline": "Align personal career goals, technical background, and passion for the company's product vision.",
+            "difficulty": 1,
+            "state": "generated"
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What are the core technical principles of Full Stack Engineer. Experience with React, Node.js, and GraphQL is a plus.?",
+            "back": "Key principles include modularity, error handling, performance optimization, and adhering to best practice design patterns.",
+            "requirement_ids": [
+              "r1"
+            ],
+            "state": "generated"
+          }
+        ],
+        "schedule": {
+          "days_available": 7,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Core Technical Concepts & Problem Solving",
+              "question_ids": [
+                "q_technical_r1_1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 2,
+              "focus": "System Design Architecture & Scalability",
+              "question_ids": [
+                "q_system-design_r1_1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "Behavioural Interview Scenarios & Soft Skills",
+              "question_ids": [
+                "q_behavioural_r1_1"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 4,
+              "focus": "Company Culture, Values & Role Alignment",
+              "question_ids": [
+                "q_company-fit_r1_1"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            },
+            {
+              "day": 6,
+              "focus": "Day 6: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            },
+            {
+              "day": 7,
+              "focus": "Day 7: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    },
+    {
+      "id": "case-05",
+      "status": "ok",
+      "kit": {
+        "source": {
+          "company": "Example",
+          "company_url": "https://example.com/team",
+          "role": "Engineering Lead. Lead engineering team of 8 developers.",
+          "location": "Remote / Onsite",
+          "jd_chars": 56,
+          "researched_at": "2026-09-10T17:42:22.084Z",
+          "pages_used": []
+        },
+        "company_brief": {
+          "summary": "Detailed overview of Example.",
+          "what_they_do": "Provides products and services in their industry.",
+          "sources": [],
+          "state": "generated"
+        },
+        "role": {
+          "title": "Engineering Lead. Lead engineering team of 8 developers.",
+          "seniority": "Mid-Senior",
+          "responsibilities": [
+            "Fulfill technical objectives",
+            "Collaborate with team"
+          ],
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "Engineering Lead. Lead engineering team of 8 developers.",
+              "kind": "technical",
+              "priority": "must"
+            }
+          ],
+          "state": "generated"
+        },
+        "questions": [
+          {
+            "id": "q_technical_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "technical",
+            "prompt": "Explain how you implement and optimize Engineering Lead. Lead engineering team of 8 developers. in a production codebase.",
+            "answer_outline": "Cover architecture, error handling, performance consideration, and automated testing for Engineering Lead. Lead engineering team of 8 developers..",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_behavioural_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "behavioural",
+            "prompt": "Describe a situation where you had to navigate challenges involving Engineering Lead. Lead engineering team of 8 developers..",
+            "answer_outline": "Use the STAR method: Describe the Situation, your Task, the Action you took, and the quantifiable Result.",
+            "difficulty": 2,
+            "state": "generated"
+          },
+          {
+            "id": "q_system-design_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "system-design",
+            "prompt": "Design a high-throughput, fault-tolerant system that fulfills Engineering Lead. Lead engineering team of 8 developers..",
+            "answer_outline": "Address data modeling, API boundaries, caching strategy, bottleneck identification, and failure recovery.",
+            "difficulty": 3,
+            "state": "generated"
+          },
+          {
+            "id": "q_company-fit_r1_1",
+            "requirement_ids": [
+              "r1"
+            ],
+            "category": "company-fit",
+            "prompt": "Why are you excited about working on Engineering Lead. Lead engineering team of 8 developers. at our company?",
+            "answer_outline": "Align personal career goals, technical background, and passion for the company's product vision.",
+            "difficulty": 1,
+            "state": "generated"
+          }
+        ],
+        "flashcards": [
+          {
+            "id": "f1",
+            "front": "What are the core technical principles of Engineering Lead. Lead engineering team of 8 developers.?",
+            "back": "Key principles include modularity, error handling, performance optimization, and adhering to best practice design patterns.",
+            "requirement_ids": [
+              "r1"
+            ],
+            "state": "generated"
+          }
+        ],
+        "schedule": {
+          "days_available": 10,
+          "days": [
+            {
+              "day": 1,
+              "focus": "Core Technical Concepts & Problem Solving",
+              "question_ids": [
+                "q_technical_r1_1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 2,
+              "focus": "System Design Architecture & Scalability",
+              "question_ids": [
+                "q_system-design_r1_1"
+              ],
+              "minutes": 45
+            },
+            {
+              "day": 3,
+              "focus": "Behavioural Interview Scenarios & Soft Skills",
+              "question_ids": [
+                "q_behavioural_r1_1"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 4,
+              "focus": "Company Culture, Values & Role Alignment",
+              "question_ids": [
+                "q_company-fit_r1_1"
+              ],
+              "minutes": 30
+            },
+            {
+              "day": 5,
+              "focus": "Day 5: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            },
+            {
+              "day": 6,
+              "focus": "Day 6: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            },
+            {
+              "day": 7,
+              "focus": "Day 7: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            },
+            {
+              "day": 8,
+              "focus": "Day 8: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            },
+            {
+              "day": 9,
+              "focus": "Day 9: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            },
+            {
+              "day": 10,
+              "focus": "Day 10: Review & Mock Practice",
+              "question_ids": [],
+              "minutes": 30
+            }
+          ]
+        },
+        "coverage": {
+          "uncovered_requirement_ids": [],
+          "passes": 1
+        }
+      },
+      "error": null
+    }
+  ]
+}
