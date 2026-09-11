@@ -418,7 +418,8 @@ When Gemini API returns HTTP 429 (Too Many Requests) or 5xx server errors, `Gemi
 | Missing hiring page | Proceed using homepage and about info. |
 | Invalid LLM JSON | Run automatic JSON repair pass. |
 | Duplicate submission | Return existing kit based on SHA-256 fingerprint hash. |
-| 1-day / 60-day schedule | Clamped and distributed across exact requested number of days. |
+| 1-day / 60-day schedule | Validated and allocated across exactly the requested number of days.
+Invalid day counts outside 1–60 | Rejected with a validation error. |
 
 ---
 
