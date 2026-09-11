@@ -40,21 +40,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+    <div className="min-h-screen flex flex-col bg-zinc-50 dark:bg-[#09090b] text-zinc-900 dark:text-[#f4f4f5]">
       <Navbar user={null} />
 
       <main className="flex-1 flex items-center justify-center p-4">
-        <div className="w-full max-w-md glass-panel p-8 rounded-2xl shadow-2xl border border-slate-800">
-          <div className="text-center mb-8">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 mb-3">
-              <BrainCircuit className="h-6 w-6" />
+        <div className="w-full max-w-md bg-white dark:bg-[#121215] p-8 rounded-xl border border-zinc-200 dark:border-zinc-800/90 shadow-xl dark:shadow-2xl">
+          <div className="text-center mb-6">
+            <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700/60 mb-3">
+              <BrainCircuit className="h-5 w-5" />
             </div>
-            <h2 className="text-2xl font-bold text-white">Welcome back</h2>
-            <p className="text-sm text-slate-400 mt-1">Sign in to access your interview prep kits</p>
+            <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">Welcome back</h2>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-sans">Sign in to access your interview prep kits</p>
           </div>
 
           {error && (
-            <div className="mb-6 flex items-center gap-2.5 p-3.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 text-sm">
+            <div className="mb-5 flex items-center gap-2 p-3 rounded-md bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-300 text-xs font-mono">
               <AlertCircle className="h-4 w-4 shrink-0" />
               <span>{error}</span>
             </div>
@@ -62,35 +62,35 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-[11px] font-mono uppercase text-zinc-600 dark:text-zinc-400 mb-1.5">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400 dark:text-zinc-500" />
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="candidate@example.com"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl py-2.5 pl-10 pr-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                  className="w-full bg-zinc-50 dark:bg-[#18181b] border border-zinc-300 dark:border-zinc-700/80 rounded-md py-2 pl-9 pr-3 text-xs text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors font-sans"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-[11px] font-mono uppercase text-zinc-600 dark:text-zinc-400 mb-1.5">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-400 dark:text-zinc-500" />
                 <input
                   type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl py-2.5 pl-10 pr-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
+                  className="w-full bg-zinc-50 dark:bg-[#18181b] border border-zinc-300 dark:border-zinc-700/80 rounded-md py-2 pl-9 pr-3 text-xs text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors font-sans"
                 />
               </div>
             </div>
@@ -98,22 +98,22 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/20 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 mt-6"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 font-semibold text-xs transition-colors disabled:opacity-50 mt-5 shadow-xs"
             >
               {loading ? (
                 <span>Signing in...</span>
               ) : (
                 <>
                   <span>Sign In</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </>
               )}
             </button>
           </form>
 
-          <p className="text-center text-xs text-slate-400 mt-6">
+          <p className="text-center text-xs text-zinc-600 dark:text-zinc-400 mt-6 font-sans">
             Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-indigo-400 hover:underline font-medium">
+            <Link href="/register" className="text-zinc-900 dark:text-white hover:underline font-semibold">
               Create one now
             </Link>
           </p>

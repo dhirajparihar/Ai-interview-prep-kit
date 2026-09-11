@@ -30,23 +30,21 @@ export default function GenerationProgressModal({
   onRetry,
 }: GenerationProgressProps) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
-      <div className="w-full max-w-lg glass-panel p-8 rounded-2xl shadow-2xl border border-slate-800 relative overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-500/10 blur-3xl rounded-full pointer-events-none" />
-
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 dark:bg-black/80 backdrop-blur-sm p-4">
+      <div className="w-full max-w-lg bg-white dark:bg-[#121215] p-7 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-2xl relative overflow-hidden">
         <div className="text-center mb-6">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 mb-4">
+          <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700/60 mb-3">
             {error ? (
-              <AlertTriangle className="h-6 w-6 text-red-400" />
+              <AlertTriangle className="h-5 w-5 text-red-600 dark:text-red-400" />
             ) : (
-              <Sparkles className="h-6 w-6 text-indigo-400 animate-pulse" />
+              <Sparkles className="h-5 w-5 text-zinc-700 dark:text-zinc-200 animate-pulse" />
             )}
           </div>
 
-          <h3 className="text-xl font-bold text-white">
+          <h3 className="text-lg font-bold text-zinc-900 dark:text-white tracking-tight">
             {error ? "Generation Error" : "Building Your Interview Prep Kit"}
           </h3>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1 font-sans">
             {error
               ? "An unexpected issue occurred during research or generation."
               : "Our pipeline is extracting requirements, crawling site data, and calculating deterministic schedules."}
@@ -54,14 +52,14 @@ export default function GenerationProgressModal({
         </div>
 
         {!error && (
-          <div className="mb-6">
-            <div className="flex justify-between text-xs font-semibold text-slate-400 mb-2">
+          <div className="mb-5">
+            <div className="flex justify-between text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-2">
               <span>{stage || "Initializing pipeline..."}</span>
-              <span className="text-indigo-400">{percent}%</span>
+              <span className="text-zinc-900 dark:text-white font-semibold">{percent}%</span>
             </div>
-            <div className="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+            <div className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-900 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800">
               <div
-                className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-500"
+                className="h-full bg-zinc-900 dark:bg-white transition-all duration-500"
                 style={{ width: `${percent}%` }}
               />
             </div>
@@ -70,20 +68,20 @@ export default function GenerationProgressModal({
 
         {error ? (
           <div className="space-y-4">
-            <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 text-xs leading-relaxed">
+            <div className="p-3.5 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-300 text-xs font-mono leading-relaxed">
               {error}
             </div>
             {onRetry && (
               <button
                 onClick={onRetry}
-                className="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-all"
+                className="w-full py-2 px-4 rounded-md bg-zinc-900 dark:bg-white hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-950 font-semibold text-xs transition-colors shadow-xs"
               >
                 Retry Generation
               </button>
             )}
           </div>
         ) : (
-          <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
+          <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
             {STAGES.map((stg, idx) => {
               const isCurrent = stage.toLowerCase().includes(stg.slice(0, 15).toLowerCase());
               const isPassed = percent > (idx + 1) * 9;
@@ -91,20 +89,20 @@ export default function GenerationProgressModal({
               return (
                 <div
                   key={idx}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs transition-colors ${
+                  className={`flex items-center gap-2.5 px-3 py-1.5 rounded-md text-xs font-mono transition-colors ${
                     isCurrent
-                      ? "bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 font-medium"
+                      ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-700/80 font-semibold"
                       : isPassed
-                      ? "text-slate-400"
-                      : "text-slate-600"
+                      ? "text-zinc-600 dark:text-zinc-400"
+                      : "text-zinc-400 dark:text-zinc-600"
                   }`}
                 >
                   {isPassed ? (
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                   ) : isCurrent ? (
-                    <Loader2 className="h-4 w-4 text-indigo-400 animate-spin shrink-0" />
+                    <Loader2 className="h-3.5 w-3.5 text-zinc-900 dark:text-white animate-spin shrink-0" />
                   ) : (
-                    <div className="h-2 w-2 rounded-full bg-slate-800 shrink-0 ml-1 mr-1" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-zinc-300 dark:bg-zinc-800 shrink-0 ml-1 mr-1" />
                   )}
                   <span className="truncate">{stg}</span>
                 </div>
@@ -116,3 +114,4 @@ export default function GenerationProgressModal({
     </div>
   );
 }
+

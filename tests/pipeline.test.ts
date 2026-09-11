@@ -15,7 +15,7 @@ describe("Pipeline Security, SSRF & State Preservation Tests", () => {
 
   it("should reject localhost and 127.0.0.1 in production mode", () => {
     delete process.env.EVALUATOR_MODE;
-    delete process.env.NODE_ENV;
+    (process.env as any).NODE_ENV = undefined;
 
     const resLocalhost = validateUrlForSSRF("http://localhost:8099/acme");
     expect(resLocalhost.allowed).toBe(false);

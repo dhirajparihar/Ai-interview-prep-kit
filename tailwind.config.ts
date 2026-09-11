@@ -9,21 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: {
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          900: "#312e81",
-        },
-        slate: {
-          850: "#151e2e",
-          950: "#0b0f17",
-        }
+        surface: "#121215",
+        "surface-hover": "#18181b",
+        subtle: "#27272a",
       },
     },
   },
@@ -31,3 +26,4 @@ const config: Config = {
 };
 
 export default config;
+

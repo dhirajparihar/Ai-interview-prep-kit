@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { KitService } from "@/lib/services/kitService";
 import Navbar from "@/components/ui/Navbar";
 import Link from "next/link";
-import { PlusCircle, Building2, Calendar, FileText, ArrowRight, BrainCircuit, ExternalLink, Sparkles } from "lucide-react";
+import { PlusCircle, Building2, Calendar, FileText, ArrowRight, BrainCircuit } from "lucide-react";
 
 export default async function DashboardPage() {
   const user = await getSessionUser();
@@ -15,48 +15,48 @@ export default async function DashboardPage() {
   const kits = await kitService.getKitsForUser(user.userId);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
+    <div className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)] transition-colors">
       <Navbar user={user} />
 
       <main className="flex-1 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white">Your Interview Prep Kits</h1>
-            <p className="text-xs sm:text-sm text-slate-400 mt-1">
-              Manage your role preparation decks, custom questions, and study timelines
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">Interview Prep Kits</h1>
+            <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5 font-sans">
+              Role decks, custom question banks, and schedule allocations
             </p>
           </div>
 
           <Link
             href="/kits/new"
-            className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 transition-all hover:scale-[1.02]"
+            className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 font-semibold text-xs transition-colors shadow-sm"
           >
-            <PlusCircle className="h-4.5 w-4.5" />
+            <PlusCircle className="h-4 w-4" />
             <span>Create New Kit</span>
           </Link>
         </div>
 
         {/* Kits Grid */}
         {kits.length === 0 ? (
-          <div className="glass-panel rounded-2xl p-12 text-center max-w-xl mx-auto my-12 border border-slate-800">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">
-              <BrainCircuit className="h-7 w-7" />
+          <div className="bg-white dark:bg-[#121215] border border-zinc-200 dark:border-zinc-800 rounded-xl p-12 text-center max-w-xl mx-auto my-12 shadow-sm dark:shadow-none">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700/60 mb-4">
+              <BrainCircuit className="h-6 w-6" />
             </div>
-            <h3 className="text-lg font-bold text-white mb-2">No Prep Kits Yet</h3>
-            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-              Paste a job description and company website URL to generate your first AI-powered preparation kit.
+            <h3 className="text-base font-semibold text-zinc-900 dark:text-white mb-1.5">No Preparation Kits Found</h3>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed font-sans">
+              Paste a job description and company URL to generate your tailored AI preparation kit.
             </p>
             <Link
               href="/kits/new"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/20 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 font-semibold text-xs transition-colors shadow-sm"
             >
-              <Sparkles className="h-4 w-4" />
+              <PlusCircle className="h-3.5 w-3.5" />
               <span>Generate Kit Now</span>
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {kits.map((kitDoc) => {
               const kit = kitDoc.kit;
               const kitId = kitDoc._id.toString();
@@ -64,50 +64,50 @@ export default async function DashboardPage() {
               return (
                 <div
                   key={kitId}
-                  className="glass-panel p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700 transition-all group hover:shadow-xl hover:shadow-indigo-500/5"
+                  className="bg-white dark:bg-[#121215] border border-zinc-200 dark:border-zinc-800/90 hover:border-zinc-300 dark:hover:border-zinc-700 p-5 rounded-xl flex flex-col justify-between transition-colors shadow-sm dark:shadow-none group"
                 >
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 truncate max-w-[180px]">
+                      <span className="text-[11px] font-mono text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 px-2 py-0.5 rounded truncate max-w-[160px]">
                         {kit.source.company || "Target Company"}
                       </span>
-                      <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                      <span className="text-[11px] font-mono text-zinc-600 dark:text-zinc-400 bg-zinc-50 dark:bg-zinc-900 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-800">
                         {kit.schedule?.days_available || 5} Days Prep
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-1 mb-2">
+                    <h3 className="text-base font-semibold text-zinc-900 dark:text-white group-hover:text-zinc-600 dark:group-hover:text-zinc-200 transition-colors line-clamp-1 mb-3">
                       {kit.role?.title || "Target Role"}
                     </h3>
 
-                    <div className="space-y-1.5 text-xs text-slate-400 mb-6">
+                    <div className="space-y-1.5 text-xs text-zinc-600 dark:text-zinc-400 mb-6 font-sans">
                       <div className="flex items-center gap-2">
-                        <Building2 className="h-3.5 w-3.5 text-slate-500" />
+                        <Building2 className="h-3.5 w-3.5 text-zinc-400 dark:text-zinc-500" />
                         <span className="truncate">{kit.source.company_url}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <FileText className="h-3.5 w-3.5 text-slate-500" />
+                        <FileText className="h-3.5 w-3.5 text-zinc-400 dark:text-zinc-500" />
                         <span>{kit.questions?.length || 0} Questions • {kit.flashcards?.length || 0} Flashcards</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Calendar className="h-3.5 w-3.5 text-slate-500" />
+                        <Calendar className="h-3.5 w-3.5 text-zinc-400 dark:text-zinc-500" />
                         <span>Created {new Date(kitDoc.createdAt).toLocaleDateString()}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 pt-4 border-t border-slate-800/80">
+                  <div className="flex items-center gap-2 pt-4 border-t border-zinc-100 dark:border-zinc-800/80">
                     <Link
                       href={`/kits/${kitId}`}
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-xs font-medium text-zinc-900 dark:text-zinc-200 transition-colors"
                     >
                       <span>Open Kit</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      <ArrowRight className="h-3 w-3" />
                     </Link>
 
                     <Link
                       href={`/kits/${kitId}/practice`}
-                      className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 text-xs font-semibold border border-indigo-500/30 transition-colors"
+                      className="flex items-center justify-center gap-1.5 py-1.5 px-3 rounded bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-xs font-semibold transition-colors"
                     >
                       <span>Practice</span>
                     </Link>
@@ -121,3 +121,5 @@ export default async function DashboardPage() {
     </div>
   );
 }
+
+
