@@ -18,6 +18,23 @@ The AI Interview Prep Kit empowers candidates to prepare effectively for role-sp
 
 ---
 
+### Required Assessment Specifications Checklist
+
+| Requirement | Documented Section | Key Summary |
+| --- | --- | --- |
+| **Project Overview & Tech Stack** | [Section 1](#1-project-overview) & [Section 3](#3-tech-stack--single-repository-architecture) | Full-stack Next.js 14 App Router (TypeScript, Tailwind CSS, MongoDB, Gemini API). Justification provided for unified single repository model. |
+| **Setup & Batch Commands** | [Section 23](#23-batch-evaluator), [Section 25](#25-local-setup-instructions), [Section 27](#27-deployment-configuration) | Local setup, production deployment on Vercel, and exact CLI batch command: `npm run evaluate -- --input <cases.json> --output <kits.json>`. |
+| **LLM Provider & Model** | [Section 11](#11-llm-provider--model) | Google Gemini REST API using `gemini-2.5-flash` with strict JSON mode, exponential backoff, and JSON repair fallback. |
+| **High-Level Architecture** | [Section 4](#4-architecture--high-level-system-diagram) | End-to-end system flow diagram connecting UI, route handlers, service layer, research pipeline, Gemini LLM, coverage validator, schedule allocator, and database. |
+| **Retrieval Approach & Sources** | [Section 7](#7-research-pipeline--retrieval-approach), [Section 8](#8-web-crawling-strategy), [Section 10](#10-public-interview-research) | Custom `cheerio` WebCrawler for homepage, hiring pages (`careers`, `jobs`, `culture`), and Tavily Search API for candidate discussion snippets (Glassdoor, Reddit, Blind). |
+| **Step Sequencing & Responsibilities** | [Section 7](#7-research-pipeline--retrieval-approach) | Explicit 21-step pipeline breakdown detailing research crawling, category question generation, coverage checking, second pass loop, and scheduling. |
+| **Generated / Edited / Pinned State** | [Section 16](#16-generated--edited--pinned-state-model) & [Section 17](#17-regeneration-strategy) | State tracking (`"generated"`, `"edited"`, `"pinned"`) on all questions and flashcards. Category regeneration strictly preserves user edits and pinned items. |
+| **Schedule Allocation** | [Section 15](#15-deterministic-schedule-allocation-algorithm) | Pure arithmetic algorithm validating $1 \le N \le 60$ days, scoring questions by priority & difficulty, and distributing into $N$ day buckets. |
+| **Creative Feature** | [Section 30](#30-creative-feature-interview-weak-spots--readiness-report) | **Interview Weak Spots & Readiness Report**: Correlates practice flashcard confidence ratings with JD requirement priorities to output readiness % and action items. |
+| **Design Trade-offs & Limitations** | [Section 28](#28-engineering-trade-offs) & [Section 29](#29-known-limitations) | Next.js single repo vs split backend trade-off, Cheerio vs Headless browser performance trade-off, SPA site limitations. |
+
+---
+
 ## 2. Features
 
 - **Automated Company & Culture Crawler**: Discovers hiring/careers pages without hardcoded paths, respects site structure, and handles 404s gracefully.
