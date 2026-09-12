@@ -2,6 +2,8 @@
 
 A full-stack AI Interview Preparation Kit application built for the Trao Full-Stack Engineering Assessment. The application transforms raw job descriptions and company website URLs into structured, highly personalized interview prep kits through automated web crawling, public interview research, category-specific question generation, deterministic requirement coverage checking, and day-by-day study schedule allocation.
 
+Project link: https://ai-interview-prep-kit-two.vercel.app/
+Video link: https://youtu.be/mRNUporx598
 ---
 
 ## 1. Project Overview
