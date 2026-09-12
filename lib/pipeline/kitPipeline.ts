@@ -6,6 +6,7 @@ import { QuestionGenerator } from "@/lib/questions/questionGenerator";
 import { FlashcardGenerator } from "@/lib/flashcards/flashcardGenerator";
 import { checkCoverage } from "@/lib/coverage/coverageChecker";
 import { allocateSchedule } from "@/lib/scheduling/scheduleAllocator";
+import { GeminiClient } from "@/lib/llm/geminiClient";
 import { validateKit, KitData, Question } from "@/lib/validation/kitSchema";
 
 export interface PipelineOptions {
@@ -111,12 +112,39 @@ export class KitPipeline {
 
     // Step 20: Validate Complete Kit against Appendix A Schema
     reportProgress("Validating prep kit...", 95);
+    let companyBriefData = {
+      summary: `${companyName} is an organization in technology and engineering.`,
+      what_they_do: (crawlResult.about_text || crawlResult.homepage_text || "").slice(0, 600).replace(/\s+/g, " ").trim() || "Provides products, services, and engineering solutions in their industry.",
+    };
+
+    try {
+      const llm = new GeminiClient();
+      const briefResult = await llm.generateJSON<{ summary: string; what_they_do: string }>(
+        `You are an expert corporate research analyst. Summarize what ${companyName} does based on the provided web content and job role context. Return a professional 2-sentence company summary and a clear, informative 3-sentence 'what they do and product focus' description.`,
+        `Company Name: ${companyName}
+Role Title: ${roleData.title}
+Crawled Web Content:
+${(crawlResult.about_text || crawlResult.homepage_text || crawlResult.hiring_text || "").slice(0, 3000)}`,
+        `{
+  "summary": "2-sentence executive summary of ${companyName}",
+  "what_they_do": "3-sentence breakdown of the products, services, and business focus of ${companyName}"
+}`
+      );
+
+      if (briefResult.summary && briefResult.what_they_do) {
+        companyBriefData = briefResult;
+      }
+    } catch {
+      const combined = (crawlResult.about_text || crawlResult.homepage_text || "").trim();
+      if (combined.length > 50) {
+        companyBriefData.what_they_do = combined.slice(0, 600).replace(/\s+/g, " ").trim() + "...";
+      }
+    }
+
     const companyBrief = {
-      summary: crawlResult.homepage_text
-        ? `${companyName} is a technology-focused organization.`
-        : `Detailed overview of ${companyName}.`,
-      what_they_do: crawlResult.about_text.slice(0, 1000) || `Provides products and services in their industry.`,
-      sources: crawlResult.pages_used,
+      summary: companyBriefData.summary,
+      what_they_do: companyBriefData.what_they_do,
+      sources: crawlResult.pages_used.length > 0 ? crawlResult.pages_used : [companyUrl],
       state: "generated" as const,
     };
 

@@ -36,7 +36,7 @@ export class WebCrawler {
       return {
         pages: [],
         pages_used: [],
-        company_name: this.extractNameFromUrl(baseUrl),
+        company_name: this.extractCompanyName(baseUrl),
         homepage_text: "",
         hiring_text: "",
         about_text: "",
@@ -54,9 +54,7 @@ export class WebCrawler {
     }
 
     // Extract company name from title or URL
-    const companyName = homePage?.title
-      ? homePage.title.split("|")[0].split("-")[0].trim()
-      : this.extractNameFromUrl(normalizedBaseUrl);
+    const companyName = this.extractCompanyName(normalizedBaseUrl, homePage?.title);
 
     if (!homePage) {
       return {
@@ -209,13 +207,52 @@ export class WebCrawler {
       .sort((a, b) => b.score - a.score);
   }
 
-  private extractNameFromUrl(urlStr: string): string {
+  private extractCompanyName(urlStr: string, title?: string): string {
+    let domainName = "";
     try {
-      const host = new URL(urlStr).hostname.replace(/^www\./, "");
-      const name = host.split(".")[0];
-      return name.charAt(0).toUpperCase() + name.slice(1);
+      const parsedUrl = new URL(urlStr);
+      const hostParts = parsedUrl.hostname.replace(/^www\./i, "").split(".");
+      
+      const atsDomains = ["myworkdayjobs.com", "workday.com", "greenhouse.io", "lever.co", "notion.site", "github.io"];
+      const isAts = atsDomains.some((d) => parsedUrl.hostname.toLowerCase().includes(d));
+
+      if (isAts) {
+        domainName = hostParts[0];
+      } else {
+        domainName = hostParts[0];
+      }
     } catch {
-      return "Target Company";
+      domainName = "";
     }
+
+    if (title && title.length > 0) {
+      const parts = title.split(/[|–\-\:]+/).map((p) => p.trim()).filter(Boolean);
+      const ignoreKeywords = [
+        "localizações", "locations", "associate", "engineer", "software",
+        "intern", "careers", "jobs", "hiring", "job", "home", "welcome",
+        "overview", "details", "opening", "position"
+      ];
+
+      for (const part of parts) {
+        const lowerPart = part.toLowerCase();
+        if (domainName && lowerPart.includes(domainName.toLowerCase())) {
+          return part;
+        }
+      }
+
+      for (const part of parts) {
+        const lowerPart = part.toLowerCase();
+        const isGeneric = ignoreKeywords.some((kw) => lowerPart === kw || lowerPart.startsWith(kw));
+        if (!isGeneric && part.length >= 3 && part.length <= 40) {
+          return part;
+        }
+      }
+    }
+
+    if (domainName) {
+      return domainName.charAt(0).toUpperCase() + domainName.slice(1);
+    }
+
+    return "Target Company";
   }
 }
