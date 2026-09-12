@@ -9,6 +9,7 @@ interface QuestionListProps {
   kitId: string;
   onUpdateQuestion: (questionId: string, updatedData: Partial<Question>) => Promise<void>;
   onRegenerateCategory: (category: "technical" | "behavioural" | "system-design" | "company-fit") => Promise<void>;
+  onReorderQuestions?: (newQuestionIdsOrder: string[]) => Promise<void>;
 }
 
 export default function QuestionList({
@@ -16,6 +17,7 @@ export default function QuestionList({
   kitId,
   onUpdateQuestion,
   onRegenerateCategory,
+  onReorderQuestions,
 }: QuestionListProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -29,6 +31,20 @@ export default function QuestionList({
     activeCategory === "all"
       ? questions
       : questions.filter((q) => q.category === activeCategory);
+
+  const moveQuestion = async (currentIndex: number, direction: "up" | "down") => {
+    const targetIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
+    if (targetIndex < 0 || targetIndex >= questions.length) return;
+
+    const updatedList = [...questions];
+    const temp = updatedList[currentIndex];
+    updatedList[currentIndex] = updatedList[targetIndex];
+    updatedList[targetIndex] = temp;
+
+    if (onReorderQuestions) {
+      await onReorderQuestions(updatedList.map((q) => q.id));
+    }
+  };
 
   const startEditing = (q: Question) => {
     setEditingId(q.id);
@@ -92,6 +108,7 @@ export default function QuestionList({
           <div className="text-center py-8 text-zinc-500 text-xs font-mono">No questions recorded for this filter category.</div>
         ) : (
           filteredQuestions.map((q, idx) => {
+            const globalIndex = questions.findIndex((item) => item.id === q.id);
             const isEditing = editingId === q.id;
 
             return (
@@ -125,7 +142,30 @@ export default function QuestionList({
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
+                    {onReorderQuestions && (
+                      <div className="flex items-center gap-1 border-r border-zinc-200 dark:border-zinc-800 pr-2 mr-1">
+                        <button
+                          onClick={() => moveQuestion(globalIndex, "up")}
+                          disabled={globalIndex === 0}
+                          title="Move Up"
+                          aria-label="Move Up"
+                          className="p-1 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 disabled:opacity-30 transition-colors"
+                        >
+                          <MoveUp className="h-3.5 w-3.5" />
+                        </button>
+                        <button
+                          onClick={() => moveQuestion(globalIndex, "down")}
+                          disabled={globalIndex === questions.length - 1}
+                          title="Move Down"
+                          aria-label="Move Down"
+                          className="p-1 rounded text-zinc-500 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 disabled:opacity-30 transition-colors"
+                        >
+                          <MoveDown className="h-3.5 w-3.5" />
+                        </button>
+                      </div>
+                    )}
+
                     {isEditing ? (
                       <button
                         onClick={() => handleSave(q.id)}

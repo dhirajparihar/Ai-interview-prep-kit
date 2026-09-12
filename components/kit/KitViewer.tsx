@@ -42,6 +42,19 @@ export default function KitViewer({ kitId, initialKit }: KitViewerProps) {
     }
   };
 
+  const handleReorderQuestions = async (newQuestionIdsOrder: string[]) => {
+    const res = await fetch(`/api/kits/${kitId}/questions/reorder`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ questionIds: newQuestionIdsOrder }),
+    });
+
+    const data = await res.json();
+    if (res.ok && data.kit?.kit) {
+      setKit(data.kit.kit);
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Kit Header */}
@@ -125,6 +138,7 @@ export default function KitViewer({ kitId, initialKit }: KitViewerProps) {
             kitId={kitId}
             onUpdateQuestion={handleUpdateQuestion}
             onRegenerateCategory={handleRegenerateCategory}
+            onReorderQuestions={handleReorderQuestions}
           />
         )}
 

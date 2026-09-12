@@ -189,4 +189,40 @@ export class KitService {
     await kitDoc.save();
     return kitDoc;
   }
+
+  public async reorderQuestions(
+    userId: string,
+    kitId: string,
+    questionIdsOrder: string[]
+  ): Promise<IKit | null> {
+    await connectToDatabase();
+    const kitDoc = await KitModel.findOne({ _id: kitId, userId });
+    if (!kitDoc) return null;
+
+    const questionMap = new Map<string, Question>();
+    kitDoc.kit.questions.forEach((q) => questionMap.set(q.id, q));
+
+    const reordered: Question[] = [];
+    questionIdsOrder.forEach((id) => {
+      const q = questionMap.get(id);
+      if (q) reordered.push(q);
+    });
+
+    kitDoc.kit.questions.forEach((q) => {
+      if (!questionIdsOrder.includes(q.id)) {
+        reordered.push(q);
+      }
+    });
+
+    kitDoc.kit.questions = reordered;
+    kitDoc.kit.schedule = allocateSchedule(
+      kitDoc.kit.role.requirements,
+      reordered,
+      kitDoc.kit.schedule.days_available
+    );
+
+    kitDoc.markModified("kit");
+    await kitDoc.save();
+    return kitDoc;
+  }
 }

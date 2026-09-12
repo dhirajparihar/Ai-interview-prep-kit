@@ -47,4 +47,31 @@ describe("Pipeline Security, SSRF & State Preservation Tests", () => {
     expect(hash1).toBe(hash2);
     expect(hash1.length).toBe(64); // SHA-256 length
   });
+
+  it("should extract requirements from a two-line stub without inventing non-existent requirements", async () => {
+    const { RequirementExtractor } = await import("../lib/extraction/requirementExtractor");
+    const extractor = new RequirementExtractor();
+
+    const stubJd = "React Developer.\nBuild user interfaces using React and TypeScript.";
+    const role = await extractor.extractRequirements(stubJd);
+
+    expect(role.title).toBeDefined();
+    expect(role.requirements.length).toBeGreaterThan(0);
+    expect(role.requirements.length).toBeLessThanOrEqual(3);
+    const reqTexts = role.requirements.map((r) => r.text.toLowerCase()).join(" ");
+    expect(reqTexts).toContain("react");
+  });
+
+  it("should handle company sites without hiring pages gracefully without throwing errors", async () => {
+    const { WebCrawler } = await import("../lib/scraper/crawler");
+    const crawler = new WebCrawler();
+
+    // Crawl a non-existent / unreachable site
+    const result = await crawler.crawlCompany("https://unreachable-test-domain-12345.com");
+
+    expect(result.company_name).toBeDefined();
+    expect(Array.isArray(result.pages)).toBe(true);
+    expect(Array.isArray(result.pages_used)).toBe(true);
+    expect(result.hiring_text).toBe("");
+  });
 });
