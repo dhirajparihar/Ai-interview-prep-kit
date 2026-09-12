@@ -90,7 +90,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-zinc-50 dark:bg-[#18181b] border border-zinc-300 dark:border-zinc-700/80 rounded-md py-2 pl-9 pr-3 text-xs text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors font-sans"
+                  className="w-full bg-zinc-50 dark:bg-[#18181b] border border-zinc-300 dark:border-zinc-700/80 rounded-md py-2 pl-9 pr-3 text-xs text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors font-sans"
                 />
               </div>
             </div>
