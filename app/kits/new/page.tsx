@@ -9,7 +9,7 @@ import { Sparkles, Building2, Calendar, FileText, Upload, AlertCircle } from "lu
 export default function NewKitPage() {
   const [jd, setJd] = useState("");
   const [companyUrl, setCompanyUrl] = useState("");
-  const [days, setDays] = useState(5);
+  const [days, setDays] = useState<number | "">(5);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [progressStage, setProgressStage] = useState("Initializing pipeline...");
@@ -52,6 +52,11 @@ export default function NewKitPage() {
       return;
     }
 
+    const finalDays =
+      typeof days === "number" && !isNaN(days)
+        ? Math.max(1, Math.min(60, days))
+        : 5;
+
     setError("");
     setLoading(true);
     setProgressStage("Extracting requirements from job description...");
@@ -72,7 +77,7 @@ export default function NewKitPage() {
       const res = await fetch("/api/kits", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ jd, companyUrl, days }),
+        body: JSON.stringify({ jd, companyUrl, days: finalDays }),
       });
 
       clearInterval(interval);
@@ -173,7 +178,24 @@ export default function NewKitPage() {
                 max={60}
                 required
                 value={days}
-                onChange={(e) => setDays(Math.max(1, Math.min(60, Number(e.target.value))))}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  if (val === "") {
+                    setDays("");
+                  } else {
+                    const parsed = parseInt(val, 10);
+                    if (!isNaN(parsed)) {
+                      setDays(parsed);
+                    }
+                  }
+                }}
+                onBlur={() => {
+                  if (days === "" || typeof days !== "number" || isNaN(days) || days < 1) {
+                    setDays(1);
+                  } else if (days > 60) {
+                    setDays(60);
+                  }
+                }}
                 className="w-full bg-zinc-50 dark:bg-[#18181b] border border-zinc-300 dark:border-zinc-700/80 rounded-md py-2 px-3 text-xs text-zinc-900 dark:text-white focus:outline-none focus:border-zinc-500 transition-colors font-mono"
               />
             </div>
